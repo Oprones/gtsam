@@ -317,6 +317,7 @@ typename traits<T>::TangentVector ProductLieGroup<G, H>::tangentSegment(
     return v.segment(startIndex, runtimeIndex);
   } else {
     static_cast<void>(d);
+    static_cast<void>(runtimeIndex);
     return v.template segment<ComponentDimension>(startIndex);
   }
 }
@@ -352,6 +353,8 @@ ProductLieGroup<G, H>::makeTangentVector(
   } else {
     static_cast<void>(d1);
     static_cast<void>(d2);
+    static_cast<void>(firstIndex);
+    static_cast<void>(secondIndex);
     TangentVector v;
     v << v1, v2;
     return v;
